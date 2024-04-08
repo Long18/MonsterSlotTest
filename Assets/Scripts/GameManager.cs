@@ -8,8 +8,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private InputMediatorSO _input;
     [SerializeField] private MonsterSO _monsters;
-    [SerializeField] private List<Image> monsterFooters = new List<Image>();
-    private List<Image> monsterChoices = new List<Image>();
+
+    [Header("UI")]
+    [SerializeField] private List<Image> _monsterFooters = new List<Image>();
+    [SerializeField] private InfiniteScroll _infiniteScroll;
+    [SerializeField] private Sprite _defaultSprite;
+    private List<Sprite> _monsterChoices = new List<Sprite>();
+    private bool _isScrolling;
 
     private void OnEnable()
     {
@@ -23,23 +28,25 @@ public class GameManager : MonoBehaviour
 
     private void OnSpaceClicked()
     {
-        Debug.Log("Space clicked");
+        _isScrolling = true;
+        ClearMonsterChoices();
+        _infiniteScroll.Init(_monsters.GetAssets);
+    }
+
+    private void ClearMonsterChoices()
+    {
+        _monsterChoices.Clear();
+        _monsterFooters.ForEach(v => v.sprite = _defaultSprite);
     }
 
     public void OnMonsterClicked(Image monster)
     {
-        if (monsterChoices.Count >= 3) return;
+        if (!_isScrolling) return;
 
-        monsterChoices.Add(monster);
-        monsterFooters[monsterChoices.Count - 1].sprite = monsterChoices[monsterChoices.Count - 1].sprite;
+        _monsterChoices.Add(monster.sprite);
+        _monsterFooters[_monsterChoices.Count - 1].sprite = _monsterChoices[_monsterChoices.Count - 1];
 
-
-        if (monsterChoices.Count == 3)
-        {
-            Debug.Log(_monsters.GetIndex(monsterChoices[0].sprite));
-            Debug.Log(_monsters.GetIndex(monsterChoices[1].sprite));
-            Debug.Log(_monsters.GetIndex(monsterChoices[2].sprite));
-            Debug.Log("Full!!");
-        }
+        if (_monsterChoices.Count < 3) return;
+        _infiniteScroll.StopScroll(_monsterChoices);
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class MonsterSO : ScriptableObject
 {
     [SerializeField] private List<Sprite> _monsters;
-    public List<Sprite> Monsters => _monsters;
+    public List<Sprite> GetAssets => _monsters;
 
     public int GetIndex(Sprite monster) => _monsters.IndexOf(monster);
 }

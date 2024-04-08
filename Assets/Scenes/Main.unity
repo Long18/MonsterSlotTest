@@ -243,10 +243,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: dd3818de85b110c48ac8e24c170f72f0, type: 2}
   _monsters: {fileID: 11400000, guid: f36913d8ccfefc649b701f10f6dc4f6f, type: 2}
-  monsterFooters:
+  _monsterFooters:
   - {fileID: 956700730}
   - {fileID: 1840838298}
   - {fileID: 1035889251}
+  _infiniteScroll: {fileID: 1785305815}
+  _defaultSprite: {fileID: 21300000, guid: b66ed7726dbb2b44099f0d74caf2fc13, type: 3}
 --- !u!1 &57717937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,11 +2287,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scrollRect: {fileID: 1785305812}
-  _scrollSpeed: -1000
-  _rangeOfVelocity: 200
-  _itemSpacing: 100
   _stopPosition: {fileID: 1533270341}
   _monsterPrefab: {fileID: 4209353494182782197, guid: a06d77d9763853748968eb561797da1b, type: 3}
+  _scrollSpeed: -2000
+  _rangeOfVelocity: 300
+  _itemSpacing: 100
 --- !u!114 &1840838298 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1136679860154278930, guid: f2d7b51132ab18145a7f6f275a7923ee, type: 3}
