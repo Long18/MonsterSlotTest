@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ee554eb7074cc43afe480bcec77e61, type: 3}
   m_Name: MonsterSO
   m_EditorClassIdentifier: 
-  Monsters:
+  _monsters:
   - {fileID: 21300000, guid: 42965ea7fff5eb348abbf008d2c30c14, type: 3}
   - {fileID: 21300000, guid: 199fce153356edf43a9291e95e2f1e56, type: 3}
   - {fileID: 21300000, guid: be7762ae81662ed45bf8f3b0ac3c2aa6, type: 3}
