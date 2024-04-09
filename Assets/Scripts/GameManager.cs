@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private List<Image> _monsterFooters = new List<Image>();
-    [SerializeField] private InfiniteScroll _infiniteScroll;
+    [SerializeField] private InfinityScroll _infiniteScroll;
     [SerializeField] private Sprite _defaultSprite;
     private List<Sprite> _monsterChoices = new List<Sprite>();
     private bool _isScrolling;
@@ -41,12 +41,11 @@ public class GameManager : MonoBehaviour
 
     public void OnMonsterClicked(Image monster)
     {
-        if (!_isScrolling) return;
+        if (!_isScrolling && _monsterChoices.Count < 3) return;
 
         _monsterChoices.Add(monster.sprite);
         _monsterFooters[_monsterChoices.Count - 1].sprite = _monsterChoices[_monsterChoices.Count - 1];
 
-        if (_monsterChoices.Count < 3) return;
         _infiniteScroll.StopScroll(_monsterChoices);
     }
 }

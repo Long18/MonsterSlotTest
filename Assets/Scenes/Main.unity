@@ -2235,7 +2235,19 @@ MonoBehaviour:
   m_VerticalScrollbarSpacing: -3
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1785305815}
+        m_TargetAssemblyTypeName: InfinityScroll, Assembly-CSharp
+        m_MethodName: OnScroll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1785305813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,7 +2303,7 @@ MonoBehaviour:
   _monsterPrefab: {fileID: 4209353494182782197, guid: a06d77d9763853748968eb561797da1b, type: 3}
   _scrollSpeed: -2000
   _rangeOfVelocity: 300
-  _itemSpacing: 100
+  _itemSpacing: 70
 --- !u!114 &1840838298 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1136679860154278930, guid: f2d7b51132ab18145a7f6f275a7923ee, type: 3}
