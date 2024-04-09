@@ -1,0 +1,27 @@
+{
+  "name": "practicaltest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Long18/MonsterSlotTest.git"
+  },
+  "author": "Long18",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Long18/MonsterSlotTest/issues"
+  },
+  "homepage": "https://github.com/Long18/MonsterSlotTest#readme",
+  "devDependencies": {
+    "standard-version": "^9.5.0"
+  },"scripts": {
+    "release": "standard-version"
+  }
+}
