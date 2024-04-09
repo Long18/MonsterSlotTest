@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,17 +11,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Image> _monsterFooters = new List<Image>();
     [SerializeField] private InfinityScroll _infiniteScroll;
     [SerializeField] private Sprite _defaultSprite;
+    [SerializeField] private Button _startButton;
     private List<Sprite> _monsterChoices = new List<Sprite>();
     private bool _isScrolling;
 
     private void OnEnable()
     {
         _input.OnSpaceClicked += OnSpaceClicked;
+        _startButton.onClick.AddListener(OnSpaceClicked);
     }
 
     private void OnDisable()
     {
         _input.OnSpaceClicked -= OnSpaceClicked;
+        _startButton.onClick.RemoveListener(OnSpaceClicked);
     }
 
     private void OnSpaceClicked()
