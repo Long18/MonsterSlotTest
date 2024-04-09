@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ScrollUpBehavior : IScrollBehavior
+public class ScrollUp : IScrollable
 {
     public Vector2 Scroll(RectTransform currentMonster, Transform lastMonster, float itemSpacing)
     {
@@ -10,7 +10,7 @@ public class ScrollUpBehavior : IScrollBehavior
     }
 }
 
-public class ScrollDownBehavior : IScrollBehavior
+public class ScrollDown : IScrollable
 {
     public Vector2 Scroll(RectTransform currentMonster, Transform lastMonster, float itemSpacing)
     {
@@ -20,7 +20,7 @@ public class ScrollDownBehavior : IScrollBehavior
     }
 }
 
-public class ScrollBehavior : IScrollBehavior
+public class ScrollBase : IScrollable
 {
     public Vector2 Scroll(RectTransform currentMonster, Transform lastMonster, float itemSpacing) => Vector2.zero;
 }

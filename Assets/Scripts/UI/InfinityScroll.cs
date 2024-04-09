@@ -15,8 +15,8 @@ public class InfinityScroll : MonoBehaviour
     [SerializeField] private float _itemSpacing;
 
     private bool _isStopScroll;
-    private IScrollBehavior _scrollUpBehavior;
-    private IScrollBehavior _scrollDownBehavior;
+    private IScrollable _scrollUp;
+    private IScrollable _scrollDown;
     private ThresholdChecker _thresholdChecker;
     private Transform _slowChildTransform;
     private Vector3 _originPosition;
@@ -25,8 +25,8 @@ public class InfinityScroll : MonoBehaviour
 
     private void Start()
     {
-        _scrollUpBehavior = new ScrollUpBehavior();
-        _scrollDownBehavior = new ScrollDownBehavior();
+        _scrollUp = new ScrollUp();
+        _scrollDown = new ScrollDown();
         _thresholdChecker = new ThresholdChecker(_scrollRect, _rangeOfVelocity, _stopPosition);
     }
 
@@ -71,8 +71,8 @@ public class InfinityScroll : MonoBehaviour
         Transform lastMonster = _scrollRect.content.GetChild(GetLastMonsterIndex(isMovingUp));
 
         currentMonster.position = isMovingUp ?
-            _scrollUpBehavior.Scroll(currentMonster, lastMonster, _itemSpacing) :
-            _scrollDownBehavior.Scroll(currentMonster, lastMonster, _itemSpacing);
+            _scrollUp.Scroll(currentMonster, lastMonster, _itemSpacing) :
+            _scrollDown.Scroll(currentMonster, lastMonster, _itemSpacing);
 
         currentMonster.SetSiblingIndex(GetLastMonsterIndex(isMovingUp));
     }
@@ -128,4 +128,5 @@ public class InfinityScroll : MonoBehaviour
 
         return rect;
     }
+
 }

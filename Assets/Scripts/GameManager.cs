@@ -42,11 +42,12 @@ public class GameManager : MonoBehaviour
 
     public void OnMonsterClicked(Image monster)
     {
-        if (!_isScrolling && _monsterChoices.Count < 3) return;
+        if (!_isScrolling || _monsterChoices.Count >= 3) return;
 
         _monsterChoices.Add(monster.sprite);
         _monsterFooters[_monsterChoices.Count - 1].sprite = _monsterChoices[_monsterChoices.Count - 1];
 
+        if (_monsterChoices.Count < 3) return;
         _infiniteScroll.StopScroll(_monsterChoices);
     }
 }
